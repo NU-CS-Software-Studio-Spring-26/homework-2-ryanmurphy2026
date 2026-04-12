@@ -39,11 +39,13 @@ class BookInStock
     raise ArgumentError, "ISBN must be a string" unless isbn.is_a?(String)
     raise ArgumentError, "ISBN must have value" unless !(isbn.empty?(String))
     raise ArgumentError, "price must be a floating point" unless age.is_a?(Float)
-    raise ArgumentError, "price must be a floating point" unless age.is_a?(Float)
+    raise ArgumentError, "price must greater than zero" unless price > 0
 
     @isbn = isbn
     @price = price
   end
+
+  
 
 
 
