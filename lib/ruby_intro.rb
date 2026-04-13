@@ -21,27 +21,27 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  !(s.start_with?("A", "E", "I", "O", "U", "a", "e", "i", "o", "u", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"))
+  !(s.isempty?) || !(s.start_with?("A", "E", "I", "O", "U", "a", "e", "i", "o", "u", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "#" ,"$", "%", "("))
 end
 
 def binary_multiple_of_4? s
-  str.chars.all? { |x| x == 0 || x == 1}
+  s.chars.all? { |x| x == "0" || x == "1"} && s.end_with?("00")
 end
 
 # Part 3
 
 class BookInStock
+  attr_accessor :isbn, :price
+
   def initialize(isbn, price)
-    raise ArgumentError, "ISBN must be a string" unless isbn.is_a?(String)
-    raise ArgumentError, "ISBN must have value" unless !(isbn.empty?)
-    raise ArgumentError, "price must be a floating point" unless price.is_a?(Float)
-    raise ArgumentError, "price must greater than zero" unless price > 0
+    raise ArgumentError unless isbn.is_a?(String) && !(isbn.empty?)
+    raise ArgumentError unless price.is_a?(Float) && price > 0
 
     @isbn = isbn
     @price = price
   end
 
-  def price_as_string()
+  def price_as_string
     "$" + sprintf("%.2f", @price)
   end
   
