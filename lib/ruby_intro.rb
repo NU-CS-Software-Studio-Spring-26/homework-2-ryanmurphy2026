@@ -1,5 +1,5 @@
 # When done, submit this entire file to the autograder.
-#test
+#testing
 # Part 1
 
 def sum arr
