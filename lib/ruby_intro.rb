@@ -21,11 +21,11 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  !(s.isempty?) || !(s.start_with?("A", "E", "I", "O", "U", "a", "e", "i", "o", "u", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "#" ,"$", "%", "("))
+  !((s.empty?) || (s.start_with?("A", "E", "I", "O", "U", "a", "e", "i", "o", "u", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "#" ,"$", "%", "(")))
 end
 
 def binary_multiple_of_4? s
-  s.chars.all? { |x| x == "0" || x == "1"} && s.end_with?("00")
+  s.chars.all? { |x| x == "0" || x == "1"} && (x == "0" || s.end_with?("00"))
 end
 
 # Part 3
@@ -35,7 +35,7 @@ class BookInStock
 
   def initialize(isbn, price)
     raise ArgumentError unless isbn.is_a?(String) && !(isbn.empty?)
-    raise ArgumentError unless price.is_a?(Float) && price > 0
+    raise ArgumentError unless price.is_a?(Numeric) && price > 0
 
     @isbn = isbn
     @price = price
