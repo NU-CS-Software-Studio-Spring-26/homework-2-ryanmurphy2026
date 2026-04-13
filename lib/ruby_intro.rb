@@ -25,7 +25,7 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  s.chars.all? { |x| x == "0" || x == "1"} && (x == "0" || s.end_with?("00"))
+  s.chars.all? { |x| x == "0" || x == "1"} && (s == "0" || s.end_with?("00"))
 end
 
 # Part 3
